@@ -1,0 +1,68 @@
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch; /* Membuat scroll lebih responsif di perangkat mobile */
+    scroll-snap-type: x mandatory; /* Mengaktifkan scroll snapping horizontal */
+}
+
+.bottom-nav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.bottom-nav li {
+    flex: 0 0 25%; /* Setiap item mengambil 25% lebar (4 item per layar) */
+    text-align: center;
+    padding: 10px 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    scroll-snap-align: start; /* Item akan snap ke awal container */
+}
+
+.bottom-nav li:hover {
+    background-color: #f0f0f0;
+    color: #ff6f61;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.bottom-nav a {
+    display: block;
+    padding: 10px;
+    color: #000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.bottom-nav a:hover {
+    color: #007bff;
+}
+
+/* Media query untuk layar kecil (ponsel) */
+@media (max-width: 576px) {
+    .bottom-nav li {
+        flex: 0 0 25%; /* Pastikan hanya 4 item yang ditampilkan */
+        padding: 5px 0; /* Padding lebih kecil untuk layar kecil */
+    }
+
+    .bottom-nav ul {
+        justify-content: space-between; /* Menyusun ikon secara merata */
+    }
+}
+
+.bottom-nav a.active {
+    background-color: #ffcc00; /* Warna latar belakang menu aktif */
+    color: #000; /* Warna teks */
+}
