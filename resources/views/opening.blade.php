@@ -76,7 +76,7 @@
     
     <audio id="hover-sound" src="https://www.soundjay.com/button/beep-07.wav"></audio>
     <audio id="click-sound" src="https://www.soundjay.com/button/beep-08b.wav"></audio>
-    <script src="{{ asset('js/nav.js') }}"></script>
+    
     <script>
         // Menangani klik pada gambar untuk membuka modal
         const image = document.getElementById('image');
