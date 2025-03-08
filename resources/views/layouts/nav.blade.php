@@ -1,4 +1,4 @@
-    <div class="bottom-nav" id="bottomNav" >
+<div class="bottom-nav" id="bottomNav" >
         <ul>
             <li>
                 <a href="{{ url('/opening/' . $guest->invitation_link) }}" 
@@ -59,14 +59,13 @@
                 class="{{ Request::is('thanks/' . $guest->invitation_link) ? 'active' : '' }}">
                     <i class="fas fa-hands-praying"></i> Thanks
                 </a>
-            </li>
+          `  </li>
         </ul>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
 <script>
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
     let bottomNav = document.querySelector(".bottom-nav");
 
     // Ambil posisi scroll dari localStorage
@@ -76,10 +75,11 @@
     bottomNav.addEventListener("scroll", function() {
         localStorage.setItem("navScroll", this.scrollLeft);
     });
+
+    // Restore scroll position after PJAX navigation
+    $(document).on('pjax:end', function() {
+        bottomNav.scrollLeft = localStorage.getItem("navScroll") || 0;
+    });
 });
-
-</script>
-
-
 </script>
 
